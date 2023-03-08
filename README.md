@@ -4,4 +4,4 @@ Java-Script
 Deze les
 
 java script (js)
-opdrachten maken
+opdrachten maken van module 2
