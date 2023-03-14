@@ -1,7 +1,15 @@
 
 
-function buttoneventhandler(){
-    print("buttonid")
+function button_event_handler(IdVar){
+    print()
+}
+
+function button_event_handler2(IdVar){
+    print()
+}
+
+function button_event_handler3(IdVar){
+    print()
 }
 placeholder = ["test"]
-buttoneventhandler(placeholder)
+button_event_handler(placeholder)
