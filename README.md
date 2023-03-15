@@ -5,3 +5,4 @@ Deze les
 
 java script (js)
 buttons1 2 en drie beginnen
+vedergaan met^^
