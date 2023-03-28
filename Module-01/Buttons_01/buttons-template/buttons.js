@@ -1,12 +1,6 @@
- function button_event_handler0(IdVar){
-        document.getElementById("backgroundimg0").style.backgroundImage = `url('images/bg${IdVar}.jpg')`;
-}
-    function button_event_handler1(IdVar){
-        document.getElementById("backgroundimg1").style.backgroundImage = `url('images/bg${IdVar}.jpg')`;
-}
-function button_event_handler2(IdVar){
-        document.getElementById("backgroundimg2").style.backgroundImage = `url('images/bg${IdVar}.jpg')`;
-}
-    function button_event_handler3(IdVar){
-        document.getElementById("backgroundimg3").style.backgroundImage = `url('images/bg${IdVar}.jpg')`;
+function button_event_handler(IdVar) {
+    console.log(IdVar)
+    document.getElementById("backgroundimg0").src = `images/bg${IdVar}.jpg`;
+    document.getElementById("containerimg0").src = `images/${IdVar}.jpg`
+    document.getElementById(`Button${IdVar}`).innerText = parseInt(document.getElementById(`Button${IdVar}`).innerText) + 1
 }
