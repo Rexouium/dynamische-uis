@@ -13,7 +13,8 @@ body {
     margin: 4px 2px;
     cursor: pointer;
 }
-.button0 {background-color: #008CBA;} /* cyan */
-.button1 {background-color: #4CAF50;} /* Green */
-.button2 {background-color: #008CBA;} /* Blue */
-.button3 {background-color: #ff0000;} /* Red */
+.button0 {background-color: #4CAF50;}
+.button1 {background-color: #4CAF50;}
+.button2 {background-color: #4CAF50;}
+.button3 {background-color: #4CAF50;}
+
