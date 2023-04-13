@@ -4,4 +4,6 @@ Java-Script
 Deze les
 
 java script (js)
-buttons2 verder gaan.
+tank opdracht gebruiken
+
+buttons 3
