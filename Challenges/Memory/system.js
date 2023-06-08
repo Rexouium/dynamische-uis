@@ -16,7 +16,7 @@ images.forEach((image) => {
 });
 function flipCard() {
     if (flippedCards.length < 2 && !flippedCards.includes(this) && !matchedCards.includes(this)) {
-        this.src = `images/${this.dataset.image}`; // Display the actual image
+        this.src = `images/${this.dataset.image}`;
         this.classList.add("flipped");
         flippedCards.push(this);
 
