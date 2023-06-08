@@ -17,7 +17,6 @@ images.forEach((image) => {
 function flipCard() {
     if (flippedCards.length < 2 && !flippedCards.includes(this) && !matchedCards.includes(this)) {
         this.src = `images/${this.dataset.image}`;
-        this.classList.add("flipped");
         flippedCards.push(this);
 
         if (flippedCards.length === 2) {
@@ -29,14 +28,10 @@ function checkMatch() {
     const [card1, card2] = flippedCards;
 
     if (card1.dataset.image === card2.dataset.image) {
-        card1.classList.add("matched");
-        card2.classList.add("matched");
         matchedCards.push(card1, card2);
     } else {
         card1.src = "gray-square.jpg";
         card2.src = "gray-square.jpg";
-        card1.classList.remove("flipped");
-        card2.classList.remove("flipped");
     }
     flippedCards = [];
 
