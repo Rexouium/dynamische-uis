@@ -1,5 +1,5 @@
-const SpeciesList = ["Rexouium.jpg", "Wolf.png", "Fox.jpg", "dragon.png", "cat.png", "protogen.jpg","Rexouium.jpg", "Wolf.png", "Fox.jpg", "dragon.png", "cat.png", "protogen.jpg"]
-const shuffledImages = shuffle(SpeciesList);
+const images = ["Rexouium.jpg", "Wolf.png", "Fox.jpg", "dragon.png", "cat.png", "protogen.jpg","Rexouium.jpg", "Wolf.png", "Fox.jpg", "dragon.png", "cat.png", "protogen.jpg"]
+const shuffledImages = shuffle(images);
 const imagesContainer = document.getElementById("images");
 shuffledImages.forEach((image) => {
     const imgElement = document.createElement("img");

@@ -1,77 +1,82 @@
-let image = document.getElementById("image");
-let tankTop = 100;
-let tankLeft = 100;
+const image = document.getElementById("image");
+let tankTop = 100, tankLeft = 100;
 const tankSpeed = 10;
-let tankDirection = 90; // start facing up
-let trackFrame = 0;
-const trackWidth = 164; // the width of each track image in the sprite sheet
-const maxTrackFrames = 3; // the number of track images in the sprite sheet
+let tankDirection = 90;
+let trackFrame = 0, maxTrackFrames = 1, trackWidth = 164;
 
-image.style.position = "absolute";
-image.style.top = tankTop + "px";
-image.style.left = tankLeft + "px";
-image.style.transform = "rotate(" + tankDirection + "deg)";
+Object.assign(image.style, {
+    position: "absolute",
+    top: tankTop + "px",
+    left: tankLeft + "px",
+    transform: `rotate(${tankDirection}deg)`
+});
 
 function checkKey(e) {
-    console.log("key nr = " + e.keyCode);
     e = e || window.event;
-    if (e.keyCode === 32) { // spacebar
-        console.log("spacebar");
-        fireShell();
-    } else if (e.keyCode === 38) { // up arrow
-        console.log("Up arrow");
-        tankDirection = 0; // face up
-        image.style.transform = "rotate(" + tankDirection + "deg)";
-        tankTop -= tankSpeed;
-        if (tankTop < 0) {
-            tankTop = 0;
-        }
-        image.style.top = tankTop + "px";
-        updateTrackAnimation();
-    } else if (e.keyCode === 40) { // down arrow
-        console.log("down arrow");
-        tankDirection = 180; // face down
-        image.style.transform = "rotate(" + tankDirection + "deg)";
-        tankTop += tankSpeed;
-        if (tankTop > window.innerHeight - image.clientHeight) {
-            tankTop = window.innerHeight - image.clientHeight;
-        }
-        image.style.top = tankTop + "px";
-        updateTrackAnimation();
-    } else if (e.keyCode === 37) { // left arrow
-        console.log("left arrow");
-        tankDirection = 270; // face left
-        image.style.transform = "rotate(" + tankDirection + "deg)";
-        tankLeft -= tankSpeed;
-        if (tankLeft < 0) {
-            tankLeft = 0;
-        }
-        image.style.left = tankLeft + "px";
-        updateTrackAnimation();
-    } else if (e.keyCode === 39) { // right arrow
-        console.log("right arrow");
-        tankDirection = 90; // face right
-        image.style.transform = "rotate(" + tankDirection + "deg)";
-        tankLeft += tankSpeed;
-        if (tankLeft > window.innerWidth - image.clientWidth) {
-            tankLeft = window.innerWidth - image.clientWidth;
-        }
-        image.style.left = tankLeft + "px";
-        updateTrackAnimation();
+    const code = e.keyCode;
+    console.log(`key nr = ${code}`);
+
+    switch (code) {
+        case 32: // spacebar
+            console.log("spacebar");
+            fireShell();
+            break;
+
+        case 38: // up arrow
+            console.log("Up arrow");
+            tankDirection = 0;
+            tankTop -= tankSpeed;
+            if (tankTop < 0) tankTop = 0;
+            break;
+
+        case 40: // down arrow
+            console.log("down arrow");
+            tankDirection = 180;
+            tankTop += tankSpeed;
+            if (tankTop > window.innerHeight - image.clientHeight)
+                tankTop = window.innerHeight - image.clientHeight;
+            break;
+
+        case 37: // left arrow
+            console.log("left arrow");
+            tankDirection = 270;
+            tankLeft -= tankSpeed;
+            if (tankLeft < 0) tankLeft = 0;
+            break;
+
+        case 39: // right arrow
+            console.log("right arrow");
+            tankDirection = 90;
+            tankLeft += tankSpeed;
+            if (tankLeft > window.innerWidth - image.clientWidth)
+                tankLeft = window.innerWidth - image.clientWidth;
+            break;
+
+        default:
+            break;
     }
+
+    image.style.transform = `rotate(${tankDirection}deg)`;
+    image.style.top = tankTop + "px";
+    image.style.left = tankLeft + "px";
+    updateTrackAnimation();
 }
 
 function updateTrackAnimation() {
-    trackFrame++;
-    if (trackFrame > maxTrackFrames) {
-        trackFrame = 1;
-    }
+    trackFrame = (trackFrame % maxTrackFrames) + 1;
     const backgroundX = (trackFrame - 1) * -trackWidth;
-    image.style.backgroundPosition = backgroundX + "px 0px";
+    console.log(backgroundX, "backgroundX value")
+    image.style.backgroundPosition = `${backgroundX}px 0px`;
 }
 
 function fireShell() {
-    console.log("Firing shell!");
+    const shell = document.createElement("div");
+    shell.className = "shell";
+    shell.style.backgroundImage = "url('tank.png')";
+    shell.style.top = (tankTop + 50) + "px";
+    shell.style.left = (tankLeft + 50) + "px";
+    shell.style.transform = "rotate(" + tankDirection + "deg)";
+    document.body.appendChild(shell);
 }
 
 document.onkeydown = checkKey;

@@ -1,0 +1,18 @@
+.gallery {
+    margin: 20px;
+    text-align: center;
+}
+.image {
+    width: 500px;
+    height: 500px;
+}
+.prev-btn, .next-btn {
+    font-size: 18px;
+    padding: 10px;
+}
+.prev-btn {
+    margin-right: 10px;
+}
+.next-btn {
+    margin-left: 10px;
+}
